@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMI Calculator — Plan Your Loan Clearly</title>
+<meta name="description" content="A free, instant EMI calculator. See your monthly payment, total interest, and principal-vs-interest split.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Free Online Tool</div>
+    <h1>Know your EMI<br>before you sign anything.</h1>
+    <p class="sub">Enter the loan amount, interest rate, and tenure. Get your exact monthly payment, total interest, and a full repayment schedule — instantly, with no sign-up.</p>
+  </header>
+
+  <main>
+    <div class="grid">
+
+      <!-- INPUT PANEL -->
+      <div class="panel">
+        <div class="field">
+          <label>Loan amount <span class="val" id="principalVal">₹5,00,000</span></label>
+          <input type="number" id="principalNum" value="500000" min="1000" step="1000">
+          <input type="range" id="principalRange" min="10000" max="10000000" step="10000" value="500000">
+        </div>
+
+        <div class="field">
+          <label>Interest rate (per year) <span class="val" id="rateVal">9.5%</span></label>
+          <input type="number" id="rateNum" value="9.5" min="0.1" max="36" step="0.1">
+          <input type="range" id="rateRange" min="1" max="24" step="0.1" value="9.5">
+        </div>
+
+        <div class="field">
+          <label>Loan tenure <span class="val" id="tenureVal">5 years</span></label>
+          <input type="number" id="tenureNum" value="5" min="1" max="30" step="1">
+          <input type="range" id="tenureRange" min="1" max="30" step="1" value="5">
+        </div>
+      </div>
+
+      <!-- RESULT PANEL -->
+      <div class="result-card">
+        <div class="result-label">Your Monthly EMI</div>
+        <div class="emi-figure" id="emiOut">₹0</div>
+        <div class="emi-sub" id="emiSubOut">per month</div>
+
+        <div class="stack-bar">
+          <div class="principal" id="barPrincipal" style="width:50%"></div>
+          <div class="interest" id="barInterest" style="width:50%"></div>
+        </div>
+        <div class="legend">
+          <div class="item">
+            <span class="dot principal"></span>
+            <span>Principal
+              <span class="amt" id="principalOut">₹0</span>
+            </span>
+          </div>
+          <div class="item">
+            <span class="dot interest"></span>
+            <span>Interest
+              <span class="amt" id="interestOut">₹0</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="totals">
+          <div>Total payment
+            <span class="num" id="totalOut">₹0</span>
+          </div>
+          <div style="text-align:right;">Loan ends
+            <span class="num" id="endOut">—</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- AMORTIZATION SCHEDULE -->
+    <div class="schedule-wrap">
+      <h2>Year-by-year repayment schedule</h2>
+      <p class="note">How much of each year's payments goes to principal vs interest, and what you still owe.</p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Principal paid</th>
+              <th>Interest paid</th>
+              <th>Balance remaining</th>
+            </tr>
+          </thead>
+          <tbody id="scheduleBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="creator">
+      Built by <strong>Komalpreet Kaur</strong><br>
+      pannukomal41@gmail.com
+    </div>
+    <a class="dh-btn" href="https://digitalheroesco.com" target="_blank" rel="noopener">Built for Digital Heroes →</a>
+  </footer>
+</div>
+</body>
+<script src="script.js"></script>
+</html>
